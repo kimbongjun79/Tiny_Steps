@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bccroypcuhfdi"
-path="res://.godot/imported/BMKkubulimTTF.ttf-b853c5801a0118f8dd3fdd3a49977050.fontdata"
+path="res://.godot/imported/BMKkubulimTTF.ttf-00076298cae76864c939e79e469334d5.fontdata"
 
 [deps]
 
-source_file="res://scenes/fonts/BMKkubulimTTF.ttf"
-dest_files=["res://.godot/imported/BMKkubulimTTF.ttf-b853c5801a0118f8dd3fdd3a49977050.fontdata"]
+source_file="res://Assets/fonts/BMKkubulimTTF.ttf"
+dest_files=["res://.godot/imported/BMKkubulimTTF.ttf-00076298cae76864c939e79e469334d5.fontdata"]
 
 [params]
 

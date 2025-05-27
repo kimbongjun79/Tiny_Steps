@@ -86,6 +86,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="bg" type="ColorRect" parent="MobileMenuPanel"]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 53.0
 offset_right = 59.0

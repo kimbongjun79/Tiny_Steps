@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcojwn1127646"
-path="res://.godot/imported/export202505172229348227.png-8e0b68bbf5abec11370c74c3e43788e8.ctex"
+uid="uid://dobkyentw7e3n"
+path="res://.godot/imported/dady_bg.png-de04a688bfb09b8bb46ffc8c362466e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export202505172229348227.png"
-dest_files=["res://.godot/imported/export202505172229348227.png-8e0b68bbf5abec11370c74c3e43788e8.ctex"]
+source_file="res://Assets/Backgrounds/dady_bg.png"
+dest_files=["res://.godot/imported/dady_bg.png-de04a688bfb09b8bb46ffc8c362466e2.ctex"]
 
 [params]
 

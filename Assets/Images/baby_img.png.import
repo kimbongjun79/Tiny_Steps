@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dobkyentw7e3n"
-path="res://.godot/imported/export202505172352201878.png-bdb000b9d53a371f9f1bf9ea69da3948.ctex"
+uid="uid://dcojwn1127646"
+path="res://.godot/imported/baby_img.png-db3c3c84fd8e9e138622558cc7ccdf35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/background/export202505172352201878.png"
-dest_files=["res://.godot/imported/export202505172352201878.png-bdb000b9d53a371f9f1bf9ea69da3948.ctex"]
+source_file="res://Assets/Images/baby_img.png"
+dest_files=["res://.godot/imported/baby_img.png-db3c3c84fd8e9e138622558cc7ccdf35.ctex"]
 
 [params]
 
