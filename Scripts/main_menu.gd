@@ -17,9 +17,9 @@ func _ready():
 
 func _on_start_button_pressed():
 	print("시작 버튼 눌림")  # 디버깅용
-	get_tree().change_scene_to_file("res://scenes/StageSelect/StageSelect.tscn")
+	get_tree().change_scene_to_file("res://Scenes/StageSelect.tscn")
 	
 	
 func _on_notice_button_pressed():
 	print("안내문 버튼 눌림")
-	get_tree().change_scene_to_file("res://scenes/HowToPlay/HowToPlay.tscn")
+	get_tree().change_scene_to_file("res://Scenes/HowToPlay.tscn")

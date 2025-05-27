@@ -86,7 +86,7 @@ func _on_next() -> void:
 		HINT_PHASE:
 			_enter_play()
 		END_PHASE:
-			get_tree().change_scene("res://Scenes/NextScene.tscn")
+			get_tree().change_scene("res://Scenes/StageSelect.tscn")
 
 # ───────── 드롭 성공 처리 ─────────
 func _on_drop_done(tex: Texture2D) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dehj4tthyeawx"
-path="res://.godot/imported/export202505172229348227.png-42749fde26057cac6b965891f5a2ef05.ctex"
+uid="uid://brl1mvty2p0ic"
+path="res://.godot/imported/mam_bg.png-0ba65aabc7a655872d7111588ef05ee6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/export202505172229348227.png"
-dest_files=["res://.godot/imported/export202505172229348227.png-42749fde26057cac6b965891f5a2ef05.ctex"]
+source_file="res://Assets/Backgrounds/mam_bg.png"
+dest_files=["res://.godot/imported/mam_bg.png-0ba65aabc7a655872d7111588ef05ee6.ctex"]
 
 [params]
 
