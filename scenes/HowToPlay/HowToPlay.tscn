@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6bsdo7ldwilg"]
+
+[ext_resource type="Texture2D" uid="uid://bpiwhqrh6hvgl" path="res://scenes/HowToPlay/export202505160353051638.png" id="1_a7sew"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://scenes/fonts/BMKkubulimTTF.ttf" id="1_mipa4"]
+[ext_resource type="Script" uid="uid://cpgwfu3wl4jtx" path="res://scenes/HowToPlay/돌아가기.gd" id="2_fi4y7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Export202505160353051638" type="Sprite2D" parent="."]
+position = Vector2(961, 536)
+texture = ExtResource("1_a7sew")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1360.0
+offset_top = 644.0
+offset_right = 1706.0
+offset_bottom = 766.0
+grow_vertical = 2
+
+[node name="돌아가기" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_mipa4")
+theme_override_font_sizes/font_size = 100
+text = "돌아가기"
+script = ExtResource("2_fi4y7")
+
+[connection signal="pressed" from="HBoxContainer/돌아가기" to="HBoxContainer/돌아가기" method="_on_back_button_pressed"]
