@@ -1,90 +1,100 @@
-# TutorialController.gd
+# TutorialController.gd   (Godot 4.x)
 extends Node
 signal step1_dropped(texture: Texture2D)
 
-# ——— 튜토리얼 메시지 리스트 ———
-var messages: Array[String] = [
+# ───────── 튜토리얼 단계별 메시지 ─────────
+const INTRO := [
 	"안녕하세요! 예비 부모님,\n튜토리얼에 오신 것을 환영합니다.",
 	"이 게임의 목표는 아이 주변 안전사고를\n미리 예방하는 것입니다.",
 	"준비되셨으면 아래 버튼을 눌러 시작하세요."
 ]
+const DROP_HINT := ["하단에서 모바일을 드래그하여\n아이 요람에 걸어보세요."]
+const ENDING   := ["튜토리얼이 끝났습니다!\n축하드립니다."]
 
-# 단계(0=설명, 1=드롭, 2=완료) 및 메시지 인덱스
-var step: int = 0
-var msg_index: int = 0
+enum { INTRO_PHASE, HINT_PHASE, PLAY_PHASE, END_PHASE }
+var phase    : int   = INTRO_PHASE
+var messages : Array = []
+var idx      : int   = 0
 
-# 타이핑 속도(초)
-@export var typing_speed: float = 0.05
+@export var typing_speed : float     = 0.05   # 글자 출력 간격
+@export var mobile_scale : float     = 0.25    # 드롭된 모빌 배율
+@export var baby_reach_texture : Texture2D    # 손 뻗는 아기 이미지
 
-# ——— 노드 레퍼런스 ———
-@onready var text_box      : Label               = $UIPanel/TextBox
-@onready var next_button   : Button              = $UIPanel/NextButton
-@onready var type_sound    : AudioStreamPlayer2D = $UIPanel/TypeSound
-@onready var mobile_menu   : Control             = $MobileMenuPanel
-@onready var mobile_attach : Sprite2D            = $Background/MobileAttach
+# ───────── 노드 참조 ─────────
+@onready var txt         : Label             = $UIPanel/TextBox
+@onready var btn         : Button            = $UIPanel/NextButton
+@onready var beep        : AudioStreamPlayer2D = $UIPanel/TypeSound
+@onready var sfx_drop    : AudioStreamPlayer2D = $UIPanel/DropSFX
+@onready var baby        : Sprite2D          = $Background/BabySprite
+@onready var attach      : Sprite2D          = $Background/MobileAttach
+@onready var menu        : Control           = $MobileMenuPanel
+@onready var panel       : Control           = $UIPanel
+@onready var fx_particle : GPUParticles2D    = $CradleDropZone/FX
 
+# ───────── 초기화 ─────────
 func _ready() -> void:
-	mobile_attach.visible = false
-	mobile_menu.visible   = false
-	next_button.text      = "다음"
-	next_button.disabled  = true
-	next_button.pressed.connect(Callable(self, "_on_next_pressed"))
-	self.connect("step1_dropped", Callable(self, "_on_step1_dropped"))
-	_show_current_message()
+	btn.pressed.connect(_on_next)
+	connect("step1_dropped", _on_drop_done)
+	_enter_intro()
 
-# ——— 1) 메시지 출력 준비 ———
-func _show_current_message() -> void:
-	text_box.text        = ""
-	next_button.disabled = true
-	# 코루틴처럼 _type_message 실행
-	_type_message(messages[msg_index])
+# ───────── 단계 진입 함수들 ─────────
+func _enter_intro():
+	phase = INTRO_PHASE
+	messages = INTRO.duplicate(); idx = 0
+	menu.visible = false; attach.visible = false
+	btn.text = "다음"; btn.disabled = true
+	_show()
 
-# ——— 2) 한 글자씩 타이핑 (async 키워드 없이) ———
-func _type_message(msg: String) -> void:
-	for ch in msg:
-		text_box.text += ch
-		type_sound.play()
-		# await 사용만으로도 일시정지 가능
+func _enter_hint():
+	phase = HINT_PHASE
+	messages = DROP_HINT; idx = 0
+	panel.visible = true; menu.visible = false
+	btn.text = "다음"; btn.disabled = true
+	_show()
+
+func _enter_play():
+	phase = PLAY_PHASE
+	panel.visible = false; menu.visible = true
+	btn.disabled = true    # 드롭 전까지 비활성
+
+func _enter_end():
+	phase = END_PHASE
+	messages = ENDING; idx = 0
+	panel.visible = true; menu.visible = false
+	btn.text = "확인"; btn.disabled = true
+	_show()
+
+# ───────── 메시지 출력 & 타이핑 ─────────
+func _show():
+	btn.disabled = true          # 출력 전 무조건 잠금
+	txt.text = ""
+	_type(messages[idx])
+
+func _type(line:String) -> void:
+	for ch in line:
+		txt.text += ch; beep.play()
 		await get_tree().create_timer(typing_speed).timeout
+	btn.disabled = false         # 타이핑 끝나면 활성화
 
-	# 타이핑 끝나면 버튼 활성화
-	next_button.disabled = false
-	if step >= 2 and msg_index == messages.size() - 1:
-		next_button.text = "확인"
-
-# ——— 3) Next/Confirm 버튼 클릭 ———
-func _on_next_pressed() -> void:
-	match step:
-		0:
-			msg_index += 1
-			if msg_index < messages.size():
-				_show_current_message()
-			else:
-				# 설명 끝 → 드롭 단계 준비
-				step      = 1
-				messages  = ["하단에서 모바일을 드래그하여\n아이 요람에 걸어보세요."]
-				msg_index = 0
-				mobile_menu.visible = true
-				_show_current_message()
-
-		1:
-			# 드롭 후 완료 메시지
-			step      = 2
-			mobile_menu.visible = false
-			messages  = ["튜토리얼이 끝났습니다!\n축하드립니다."]
-			msg_index = 0
-			_show_current_message()
-
-		2:
-			# 최종 확인 → 씬 전환
+# ───────── Next/Confirm 클릭 ─────────
+func _on_next() -> void:
+	match phase:
+		INTRO_PHASE:
+			idx += 1
+			if idx < messages.size(): _show()
+			else: _enter_hint()
+		HINT_PHASE:
+			_enter_play()
+		END_PHASE:
 			get_tree().change_scene("res://Scenes/NextScene.tscn")
 
-# ——— 4) 모바일 드랍 시그널 처리 ———
-func _on_step1_dropped(texture: Texture2D) -> void:
-	mobile_attach.texture = texture
-	mobile_attach.visible = true
-	next_button.disabled  = false
-
-
-func _on_next_button_pressed() -> void:
-	pass # Replace with function body.
+# ───────── 드롭 성공 처리 ─────────
+func _on_drop_done(tex: Texture2D) -> void:
+	attach.texture = tex
+	attach.scale   = Vector2.ONE * mobile_scale
+	attach.visible = true
+	if baby_reach_texture: baby.texture = baby_reach_texture
+	sfx_drop.play()
+	fx_particle.restart()
+	_enter_end()
+	btn.disabled = false

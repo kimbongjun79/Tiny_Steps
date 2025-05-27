@@ -17,5 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=2340
-window/size/viewport_height=1430
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[editor]
+
+movie_writer/movie_file="E:/테스트.avi"
