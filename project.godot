@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tiny_Steps"
-run/main_scene="uid://pq8kdh4a0uk"
+run/main_scene="uid://dmh3g4ga3ysn8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Images/icon.svg"
 
@@ -22,5 +22,5 @@ window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [editor]
-
 movie_writer/movie_file="E:/테스트.avi"
+
