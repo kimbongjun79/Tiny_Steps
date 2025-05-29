@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj1387cyv6e7r"]
+
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="1_rmpn5"]
+[ext_resource type="Script" uid="uid://cpgwfu3wl4jtx" path="res://Scripts/돌아가기.gd" id="2_o3x7t"]
+[ext_resource type="Script" uid="uid://bv823pnil6cp5" path="res://Scripts/tutobtn.gd" id="3_o3x7t"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 25.0
+offset_right = 1816.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0.313726, 0.803922, 0.447059, 1)
+theme_override_fonts/font = ExtResource("1_rmpn5")
+theme_override_font_sizes/font_size = 120
+text = "스테이지"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1360.0
+offset_top = 644.0
+offset_right = 1706.0
+offset_bottom = 766.0
+grow_vertical = 2
+
+[node name="돌아가기" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_rmpn5")
+theme_override_font_sizes/font_size = 100
+text = "돌아가기"
+script = ExtResource("2_o3x7t")
+
+[node name="tutobtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 266.0
+offset_right = 390.0
+offset_bottom = 297.0
+scale = Vector2(3.10294, 3.22059)
+text = "튜토리얼"
+script = ExtResource("3_o3x7t")
+
+[connection signal="pressed" from="HBoxContainer/돌아가기" to="HBoxContainer/돌아가기" method="_on_back_button_pressed"]
+[connection signal="pressed" from="tutobtn" to="tutobtn" method="_on_pressed"]

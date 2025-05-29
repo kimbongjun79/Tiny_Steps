@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://pq8kdh4a0uk"]
+
+[ext_resource type="Script" uid="uid://5nhurjpqqscx" path="res://Scripts/main_menu.gd" id="1_8um5k"]
+[ext_resource type="Texture2D" uid="uid://brl1mvty2p0ic" path="res://Assets/Backgrounds/mam_bg.png" id="2_xim88"]
+[ext_resource type="Texture2D" uid="uid://dobkyentw7e3n" path="res://Assets/Backgrounds/dady_bg.png" id="3_koqhg"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="4_cmrfp"]
+[ext_resource type="Script" uid="uid://diyaahnlmr1hl" path="res://Scripts/시작.gd" id="5_loo7a"]
+[ext_resource type="Script" uid="uid://b0hddpk8kd2s2" path="res://Scripts/안내문.gd" id="6_if7li"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cqjrg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8um5k")
+background_image_1 = ExtResource("2_xim88")
+background_image_2 = ExtResource("3_koqhg")
+
+[node name="Export202505172339379355" type="Sprite2D" parent="."]
+position = Vector2(960, 536)
+texture = ExtResource("2_xim88")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -661.0
+offset_top = 6.0
+offset_right = 2592.0
+offset_bottom = 1086.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_cqjrg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 776.0
+offset_top = 49.0
+offset_right = 1867.0
+offset_bottom = 334.0
+theme_override_colors/font_color = Color(0.309804, 0.768627, 0.898039, 1)
+theme_override_fonts/font = ExtResource("4_cmrfp")
+theme_override_font_sizes/font_size = 250
+text = "Tiny Step"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 1168.0
+offset_top = 848.0
+offset_right = 1774.0
+offset_bottom = 970.0
+theme_override_constants/separation = 100
+
+[node name="시작" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_cmrfp")
+theme_override_font_sizes/font_size = 100
+text = "시작"
+icon_alignment = 1
+script = ExtResource("5_loo7a")
+
+[node name="안내문" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_cmrfp")
+theme_override_font_sizes/font_size = 100
+text = "안내문"
+script = ExtResource("6_if7li")
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+ignore_texture_size = true
