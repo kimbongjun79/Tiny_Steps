@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ruucjhxcciv"
-path="res://.godot/imported/모빌을 가지고 즐거워하는 아기.png-185588d3f1dbd8aec7e5be7df67dff5c.ctex"
+uid="uid://h4agchhe27aa"
+path="res://.godot/imported/bottle_warm.png-3fdd5cfb54a1f1a4a320b410c96c8624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/모빌을 가지고 즐거워하는 아기.png"
-dest_files=["res://.godot/imported/모빌을 가지고 즐거워하는 아기.png-185588d3f1dbd8aec7e5be7df67dff5c.ctex"]
+source_file="res://Assets/Images/bottle_warm.png"
+dest_files=["res://.godot/imported/bottle_warm.png-3fdd5cfb54a1f1a4a320b410c96c8624.ctex"]
 
 [params]
 

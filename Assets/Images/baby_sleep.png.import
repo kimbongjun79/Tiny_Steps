@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpu5dv4atbsdx"
-path="res://.godot/imported/요람안의 아기.png-f50f20b1e84c1fd9ef85185518da22c0.ctex"
+path="res://.godot/imported/baby_sleep.png-259227a0730693f16afb5ba5bb6afa12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/요람안의 아기.png"
-dest_files=["res://.godot/imported/요람안의 아기.png-f50f20b1e84c1fd9ef85185518da22c0.ctex"]
+source_file="res://Assets/Images/baby_sleep.png"
+dest_files=["res://.godot/imported/baby_sleep.png-259227a0730693f16afb5ba5bb6afa12.ctex"]
 
 [params]
 

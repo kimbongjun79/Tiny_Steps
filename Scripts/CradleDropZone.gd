@@ -1,10 +1,9 @@
 extends Control
-
-# TutorialController 노드는 루트에 붙어 있으므로 get_parent() 로 바로 참조
 @onready var tutorial = get_parent()
 
-func _can_drop_data(position: Vector2, data: Variant) -> bool:
-	return data is Texture2D
+func _can_drop_data(_pos, data) -> bool:
+	# texture+scale 딕셔너리인지 확인
+	return typeof(data) == TYPE_DICTIONARY and data.has("texture")
 
-func _drop_data(position: Vector2, data: Variant) -> void:
-	tutorial.emit_signal("step1_dropped", data)
+func _drop_data(_pos, data) -> void:
+	get_parent().emit_signal("drag_completed", data)   # 직접 컨트롤러로
