@@ -1,0 +1,179 @@
+[gd_scene load_steps=14 format=3 uid="uid://bn83nhsbxw1bq"]
+
+[ext_resource type="Script" uid="uid://chafk6w13st6v" path="res://Scripts/TutorialController.gd" id="1_7f8g8"]
+[ext_resource type="Texture2D" uid="uid://dwrtevtp7nfph" path="res://Assets/Backgrounds/배경.png" id="2_2moqc"]
+[ext_resource type="Texture2D" uid="uid://c2ruucjhxcciv" path="res://Assets/Backgrounds/모빌을 가지고 즐거워하는 아기.png" id="2_kcl8b"]
+[ext_resource type="Texture2D" uid="uid://dpu5dv4atbsdx" path="res://Assets/Backgrounds/요람안의 아기.png" id="3_kcl8b"]
+[ext_resource type="Script" uid="uid://bmpjln2oqg2mk" path="res://Scripts/CradleDropZone.gd" id="4_haxi5"]
+[ext_resource type="Texture2D" uid="uid://c05lrwboamiud" path="res://Assets/Mobiles/모빌 (1).png" id="5_m7jwp"]
+[ext_resource type="Script" uid="uid://d1jsqpcwpoik0" path="res://Scripts/MobileButton.gd" id="6_cmr4g"]
+[ext_resource type="Texture2D" uid="uid://ciul0y30pvks4" path="res://Assets/Mobiles/모빌 (2).png" id="7_c2gyy"]
+[ext_resource type="Texture2D" uid="uid://bydc434gyj3jq" path="res://Assets/Mobiles/모빌 (3).png" id="8_5x4xl"]
+[ext_resource type="AudioStream" uid="uid://byge5lfrv531r" path="res://Assets/Sounds/button_click.wav" id="9_7f8g8"]
+[ext_resource type="AudioStream" uid="uid://c5ekrf43dsma3" path="res://Assets/Sounds/typing_sfx.wav" id="9_hqtx2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2moqc"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="FontFile" id="FontFile_7f8g8"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+
+[node name="TutorialScene" type="Node2D"]
+script = ExtResource("1_7f8g8")
+baby_reach_texture = ExtResource("2_kcl8b")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(3, 0.999992)
+scale = Vector2(1.24479, 1.04492)
+texture = ExtResource("2_2moqc")
+centered = false
+
+[node name="MobileAttach" type="Sprite2D" parent="Background"]
+position = Vector2(743.9, 309.114)
+scale = Vector2(0.429152, 0.465089)
+
+[node name="BabySprite" type="Sprite2D" parent="Background"]
+position = Vector2(774.427, 605.787)
+scale = Vector2(0.327929, 0.388715)
+texture = ExtResource("3_kcl8b")
+
+[node name="CradleDropZone" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 746.0
+offset_top = 249.0
+offset_right = 1179.0
+offset_bottom = 808.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_haxi5")
+
+[node name="FX" type="GPUParticles2D" parent="CradleDropZone"]
+position = Vector2(216, 312)
+scale = Vector2(1.88, 2.65939)
+amount = 30
+lifetime = 0.66
+interp_to_end = 0.111
+preprocess = 0.85
+speed_scale = 1.65
+explosiveness = 0.44
+randomness = 0.45
+process_material = SubResource("ParticleProcessMaterial_2moqc")
+
+[node name="MobileMenuPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 706.0
+offset_right = 1898.0
+offset_bottom = 1051.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="bg" type="ColorRect" parent="MobileMenuPanel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 53.0
+offset_right = 59.0
+offset_bottom = 93.0
+scale = Vector2(46.72, 7.48)
+color = Color(0.85098, 0.854902, 0.67451, 0.52549)
+
+[node name="MobileButton1" type="TextureButton" parent="MobileMenuPanel"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 52.0
+offset_right = 519.0
+offset_bottom = 348.0
+texture_normal = ExtResource("5_m7jwp")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_cmr4g")
+
+[node name="MobileButton2" type="TextureButton" parent="MobileMenuPanel"]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 52.0
+offset_right = 1105.0
+offset_bottom = 327.0
+texture_normal = ExtResource("7_c2gyy")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_cmr4g")
+
+[node name="MobileButton3" type="TextureButton" parent="MobileMenuPanel"]
+layout_mode = 0
+offset_left = 1405.0
+offset_top = 50.0
+offset_right = 1697.0
+offset_bottom = 319.0
+texture_normal = ExtResource("8_5x4xl")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_cmr4g")
+
+[node name="UIPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 753.0
+offset_right = 1896.0
+offset_bottom = 1073.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="bg" type="ColorRect" parent="UIPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 50.0
+offset_bottom = 46.0
+scale = Vector2(46.72, 7.48)
+color = Color(0.607843, 0.501961, 0.294118, 0.623529)
+
+[node name="TextBox" type="Label" parent="UIPanel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 18.0
+offset_right = 1890.0
+offset_bottom = 328.0
+theme_override_fonts/font = SubResource("FontFile_7f8g8")
+theme_override_font_sizes/font_size = 32
+
+[node name="TypeSound" type="AudioStreamPlayer2D" parent="UIPanel"]
+stream = ExtResource("9_7f8g8")
+volume_db = -10.0
+pitch_scale = 0.6
+
+[node name="DropSFX" type="AudioStreamPlayer2D" parent="UIPanel"]
+stream = ExtResource("9_hqtx2")
+
+[node name="NextButton" type="Button" parent="UIPanel"]
+layout_mode = 0
+offset_left = 1729.0
+offset_top = 230.0
+offset_right = 1874.0
+offset_bottom = 302.0
+text = "다음
+"
+
+[connection signal="pressed" from="UIPanel/NextButton" to="." method="_on_next_button_pressed"]

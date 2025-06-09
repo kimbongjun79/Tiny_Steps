@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bunc3wiyrmnf"]
+
+[ext_resource type="Script" uid="uid://n2qdww73mpe" path="res://Scripts/crown_person.gd" id="1_unih8"]
+[ext_resource type="Texture2D" uid="uid://bowvdd57hys3g" path="res://Assets/Images/Crown/crowns_1.png" id="2_unih8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unih8"]
+size = Vector2(461, 1290)
+
+[node name="CrownPerson" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_unih8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1202, 706)
+texture = ExtResource("2_unih8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1194.5, 705)
+shape = SubResource("RectangleShape2D_unih8")

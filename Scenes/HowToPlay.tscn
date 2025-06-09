@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6bsdo7ldwilg"]
+
+[ext_resource type="Texture2D" uid="uid://3lxq04hue422" path="res://Assets/Images/흰 배경.jpeg" id="1_gmf7q"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="1_mipa4"]
+[ext_resource type="Script" uid="uid://cpgwfu3wl4jtx" path="res://Scripts/돌아가기.gd" id="2_fi4y7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Export202505160353051638" type="Sprite2D" parent="."]
+position = Vector2(959, 539)
+scale = Vector2(1.43452, 1.43651)
+texture = ExtResource("1_gmf7q")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1350.0
+offset_top = 780.0
+offset_right = 1696.0
+offset_bottom = 902.0
+grow_vertical = 2
+
+[node name="돌아가기" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_mipa4")
+theme_override_font_sizes/font_size = 100
+text = "돌아가기"
+script = ExtResource("2_fi4y7")
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 206.0
+offset_right = 1657.0
+offset_bottom = 797.0
+theme_override_colors/font_color = Color(0.262274, 0.251223, 0.248566, 1)
+theme_override_fonts/font = ExtResource("1_mipa4")
+theme_override_font_sizes/font_size = 55
+text = "Tiny Step은 예비 보호자들을 위한 교육용 목적 게임입니다!
+
+각 stage의 컨셉별로 게임 방법이 달라지기 때문에 
+안내문을 잘 읽고 플레이 해주세요! 
+
+본 게임의 목적 특성상 충격을 줄 수 있는 부분이 있을 수 있습니다
+주의해주세요
+
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/돌아가기" to="HBoxContainer/돌아가기" method="_on_back_button_pressed"]
