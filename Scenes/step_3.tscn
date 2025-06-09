@@ -1,0 +1,226 @@
+[gd_scene load_steps=12 format=3 uid="uid://buph1dpm0g03v"]
+
+[ext_resource type="Script" uid="uid://0yib6ldt8jei" path="res://Scripts/step_3.gd" id="1_cupy0"]
+[ext_resource type="Texture2D" uid="uid://dwrtevtp7nfph" path="res://Assets/Backgrounds/배경.png" id="1_pkv7q"]
+[ext_resource type="Texture2D" uid="uid://dxew6y15vmfr0" path="res://Assets/Images/stage3_child/step3_outer_child.PNG" id="2_ejjp5"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="3_pkv7q"]
+[ext_resource type="Texture2D" uid="uid://xnj6278y1yjx" path="res://Assets/Images/neck.png" id="5_xnyv2"]
+[ext_resource type="Texture2D" uid="uid://deajrivjrcwew" path="res://Assets/Images/note.png" id="6_vwvsg"]
+[ext_resource type="Texture2D" uid="uid://b30eygt8m03tn" path="res://Assets/Images/wristband.png" id="7_8gicw"]
+[ext_resource type="AudioStream" uid="uid://cx6yywo4jylyn" path="res://Assets/Sounds/wrong-47985.mp3" id="8_8gicw"]
+[ext_resource type="AudioStream" uid="uid://decbtkxiycbk3" path="res://Assets/Sounds/yipee-45360.mp3" id="8_vwvsg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cupy0"]
+bg_color = Color(0.748339, 0.558152, 0.445177, 0.772549)
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkv7q"]
+bg_color = Color(0.939192, 0.978985, 0.974484, 0.756863)
+
+[node name="step_3" type="Node2D"]
+script = ExtResource("1_cupy0")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(981, 495)
+scale = Vector2(1.27479, 1.29754)
+texture = ExtResource("1_pkv7q")
+
+[node name="child" type="Sprite2D" parent="."]
+position = Vector2(952, 713)
+scale = Vector2(0.691406, 0.691406)
+texture = ExtResource("2_ejjp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 516.0
+offset_top = 217.0
+offset_right = 1405.0
+offset_bottom = 321.0
+theme_override_constants/separation = 40
+
+[node name="Option1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 70
+text = "팬던트"
+
+[node name="Option2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 70
+text = "명찰"
+
+[node name="Option3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 70
+text = "신발 밑창"
+
+[node name="Option4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 70
+text = "팔찌안쪽"
+
+[node name="questionLabel" type="Label" parent="."]
+offset_left = 402.0
+offset_top = 72.0
+offset_right = 1548.0
+offset_bottom = 164.0
+theme_override_colors/font_shadow_color = Color(0.175086, 0.092281, 0.0247293, 0.92549)
+theme_override_colors/font_outline_color = Color(0.229215, 0.0993039, 0.0300282, 1)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 80
+text = "어디에 비상연락망을 지니게 할까요?"
+
+[node name="explainLabel" type="Label" parent="."]
+offset_left = 1268.0
+offset_top = 402.0
+offset_right = 2051.0
+offset_bottom = 567.0
+scale = Vector2(0.684307, 0.765877)
+theme_override_colors/font_color = Color(0.20261, 0.102981, 0.0706093, 1)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_cupy0")
+text = "                  설명 내용  "
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 308.0
+offset_top = 107.0
+offset_right = 1614.0
+offset_bottom = 1017.0
+theme_override_colors/font_color = Color(0.387199, 0.238479, 0.14936, 1)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkv7q")
+text = "
+게임 설명
+
+: 아이와 떨어졌을때를 대비해서
+  비상연락처를 몸에 지니게 하는 것이 좋아요!   
+
+연락처란과 주소란을 적고 '입력하기'를 누르세요!
+연락처를 보관할 방법을 마우스 클릭으로
+선택해보세요
+각종 팁을 열람할 수 있습니다
+
+스페이스바를 눌러 시작해보세요"
+horizontal_alignment = 1
+
+[node name="Necklace" type="Sprite2D" parent="."]
+position = Vector2(1551, 810)
+scale = Vector2(0.480469, 0.480469)
+texture = ExtResource("5_xnyv2")
+
+[node name="Label" type="Label" parent="Necklace"]
+offset_left = -54.1138
+offset_top = 89.4959
+offset_right = 98.8862
+offset_bottom = 158.496
+theme_override_colors/font_color = Color(0.356863, 0, 0, 0.843137)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 60
+
+[node name="Note" type="Sprite2D" parent="."]
+position = Vector2(1566, 825)
+rotation = 1.0821
+scale = Vector2(0.432617, 0.432617)
+texture = ExtResource("6_vwvsg")
+
+[node name="Wristband" type="Sprite2D" parent="."]
+position = Vector2(1542, 826)
+scale = Vector2(0.402832, 0.402832)
+texture = ExtResource("7_8gicw")
+
+[node name="Label" type="Label" parent="Wristband"]
+offset_left = -139.016
+offset_top = -263.137
+offset_right = 173.984
+offset_bottom = -194.137
+rotation = -0.00942132
+theme_override_colors/font_color = Color(0.298039, 0.101961, 0.180392, 0.819608)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 60
+
+[node name="InsoleNote2" type="Sprite2D" parent="."]
+position = Vector2(1570, 843)
+rotation = -4.50819
+scale = Vector2(0.410373, 0.410373)
+texture = ExtResource("6_vwvsg")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 840.0
+offset_top = 418.0
+offset_right = 880.0
+offset_bottom = 458.0
+
+[node name="LineEdit" type="LineEdit" parent="UI"]
+layout_mode = 0
+offset_left = -669.0
+offset_top = 19.0
+offset_right = -333.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0.72549, 0.72549, 0.72549, 0.745098)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 100
+text = "연락처"
+
+[node name="LineEdit2" type="LineEdit" parent="UI"]
+layout_mode = 0
+offset_left = -669.0
+offset_top = 218.0
+offset_right = -333.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0.72549, 0.72549, 0.72549, 0.745098)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 100
+text = "주소"
+
+[node name="Button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = -641.0
+offset_top = 411.0
+offset_right = -359.0
+offset_bottom = 511.0
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 80
+text = "입력하기"
+
+[node name="WarningLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -794.0
+offset_top = 541.0
+offset_right = -754.0
+offset_bottom = 610.0
+theme_override_colors/font_color = Color(1, 0.113725, 0.121569, 1)
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 60
+
+[node name="wrongAnswerSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_8gicw")
+
+[node name="rightAnswerSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vwvsg")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+
+[node name="nextButton" type="Button" parent="."]
+offset_left = 1719.0
+offset_top = 930.0
+offset_right = 1865.0
+offset_bottom = 1030.0
+theme_override_fonts/font = ExtResource("3_pkv7q")
+theme_override_font_sizes/font_size = 80
+text = "다음"
+
+[connection signal="pressed" from="HBoxContainer/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Option4" to="." method="_on_option_4_pressed"]
+[connection signal="text_submitted" from="UI/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="UI/LineEdit2" to="." method="_on_line_edit_2_text_submitted"]

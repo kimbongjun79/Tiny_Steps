@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxypvboriduqi"]
+
+[ext_resource type="Script" uid="uid://no53jemnew3n" path="res://Scripts/step_1_find_the_child.gd" id="1_8h7l3"]
+[ext_resource type="Texture2D" uid="uid://c8bokb0qdpqwb" path="res://Assets/Shops/Shops[1].png" id="2_0o0gn"]
+[ext_resource type="Texture2D" uid="uid://bs4el2vnd8l34" path="res://Assets/Backgrounds/흰 배경.jpeg" id="2_krblr"]
+[ext_resource type="Texture2D" uid="uid://lm2d6ybuo25s" path="res://Assets/Shops/Shops[2].png" id="3_3feqw"]
+[ext_resource type="Texture2D" uid="uid://bqnlaofyywadj" path="res://Assets/Shops/Shops[0].png" id="4_4u51n"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="5_3feqw"]
+[ext_resource type="Script" uid="uid://dprnsgbyx0xnx" path="res://Scripts/child.gd" id="5_o5wbh"]
+[ext_resource type="Texture2D" uid="uid://byf43lwqjfs2g" path="res://Assets/Images/stage3_child/front_happy_child_redline_transparent.png" id="7_jwvg2"]
+[ext_resource type="AudioStream" uid="uid://decbtkxiycbk3" path="res://Assets/Sounds/yipee-45360.mp3" id="10_6m8s5"]
+[ext_resource type="Script" uid="uid://bioxlwrnh3tcs" path="res://Scripts/button.gd" id="10_6mdde"]
+[ext_resource type="AudioStream" uid="uid://buatps1paj5nk" path="res://Assets/Sounds/crowd_talking-6762.mp3" id="11_6m8s5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h7l3"]
+size = Vector2(833.333, 1053.33)
+
+[node name="Step1_FindTheChild" type="Node2D"]
+script = ExtResource("1_8h7l3")
+
+[node name="MapLayer" type="TextureRect" parent="."]
+offset_right = 1925.0
+offset_bottom = 1078.0
+texture = ExtResource("2_krblr")
+
+[node name="Shops" type="Node2D" parent="."]
+
+[node name="Shop1" type="Sprite2D" parent="Shops"]
+position = Vector2(284, 586)
+scale = Vector2(0.676514, 0.676514)
+texture = ExtResource("4_4u51n")
+
+[node name="Shop2" type="Sprite2D" parent="Shops"]
+position = Vector2(954, 475)
+scale = Vector2(0.743164, 0.721224)
+texture = ExtResource("2_0o0gn")
+
+[node name="Shop3" type="Sprite2D" parent="Shops"]
+position = Vector2(1651, 480)
+scale = Vector2(0.723633, 0.723633)
+texture = ExtResource("3_3feqw")
+
+[node name="Child" type="Area2D" parent="."]
+position = Vector2(1080, 825)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("5_o5wbh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Child"]
+position = Vector2(260, -166.667)
+texture = ExtResource("7_jwvg2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Child"]
+position = Vector2(250, -176.667)
+shape = SubResource("RectangleShape2D_8h7l3")
+
+[node name="Crown" type="Sprite2D" parent="."]
+position = Vector2(928, 685)
+scale = Vector2(0.466797, 0.466797)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 987.0
+offset_right = 1668.0
+offset_bottom = 1056.0
+theme_override_colors/font_color = Color(0.94902, 0.560784, 0.847059, 1)
+theme_override_fonts/font = ExtResource("5_3feqw")
+theme_override_font_sizes/font_size = 59
+text = "사람들을 사이에서 아이를 찾아요! (사람들을 드래그 해보세요)"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 1700.0
+offset_top = 950.0
+offset_right = 1812.0
+offset_bottom = 1027.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Button" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_3feqw")
+theme_override_font_sizes/font_size = 60
+button_mask = 7
+text = "다음"
+script = ExtResource("10_6mdde")
+
+[node name="clickChild" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_6m8s5")
+
+[node name="backgroundSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_6m8s5")
+
+[connection signal="input_event" from="Child" to="." method="_on_child_input_event"]
+[connection signal="input_event" from="Child" to="Child" method="_on_input_event"]
+[connection signal="pressed" from="UI/HBoxContainer/Button" to="." method="_on_button_pressed"]

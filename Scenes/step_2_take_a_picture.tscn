@@ -1,0 +1,170 @@
+[gd_scene load_steps=17 format=3 uid="uid://bj8l0dgnha2n0"]
+
+[ext_resource type="Texture2D" uid="uid://bs4el2vnd8l34" path="res://Assets/Backgrounds/흰 배경.jpeg" id="1_afvy7"]
+[ext_resource type="Script" uid="uid://dnq0a23u03wy3" path="res://Scripts/step_2_take_a_picture.gd" id="1_i3p4r"]
+[ext_resource type="Texture2D" uid="uid://b5y71k2b2wvnq" path="res://Assets/Images/사진 배경.png" id="2_04pm5"]
+[ext_resource type="Texture2D" uid="uid://dgug6hvdns5xh" path="res://Assets/Images/handphone.png" id="4_huru0"]
+[ext_resource type="Texture2D" uid="uid://q60wqjqgqbix" path="res://Assets/Images/stage3_child/run_baby2-2.png" id="4_i3p4r"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="6_i3p4r"]
+[ext_resource type="Script" uid="uid://d0pvn0m37mwa4" path="res://Scripts/step2_button.gd" id="7_bm08w"]
+[ext_resource type="AudioStream" uid="uid://cudub528bjl2n" path="res://Assets/Sounds/birds-19624.mp3" id="8_vwvmf"]
+[ext_resource type="AudioStream" uid="uid://brx50cyerpua1" path="res://Assets/Sounds/beep-329314.mp3" id="9_k6dm6"]
+[ext_resource type="AudioStream" uid="uid://cqepv4fslta4e" path="res://Assets/Sounds/error-sound-39539.mp3" id="10_dfwrj"]
+[ext_resource type="AudioStream" uid="uid://decbtkxiycbk3" path="res://Assets/Sounds/yipee-45360.mp3" id="11_n30ti"]
+[ext_resource type="AudioStream" uid="uid://dbcc8lp1q3i0e" path="res://Assets/Sounds/camera-13695.mp3" id="12_dfwrj"]
+[ext_resource type="AudioStream" uid="uid://b6bx0c1uph60m" path="res://Assets/Sounds/computer-mouse-click-351398.mp3" id="12_egiop"]
+[ext_resource type="AudioStream" uid="uid://o58hsn3t5k0d" path="res://Assets/Sounds/child-laugh-tickles-324078.mp3" id="13_n30ti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n30ti"]
+bg_color = Color(0.992157, 0.65098, 0.772549, 0.831373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3p4r"]
+bg_color = Color(0.639216, 0.905882, 0.890196, 0.87451)
+corner_detail = 10
+shadow_color = Color(0.211765, 0.854902, 0.784314, 0.184314)
+shadow_size = 10
+
+[node name="Step2TakeAPicture" type="Node2D"]
+script = ExtResource("1_i3p4r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1916.0
+offset_bottom = 1080.0
+texture = ExtResource("1_afvy7")
+metadata/_edit_lock_ = true
+
+[node name="background1" type="Sprite2D" parent="."]
+position = Vector2(1061, 534)
+scale = Vector2(0.708529, 0.708529)
+texture = ExtResource("2_04pm5")
+metadata/_edit_lock_ = true
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(345, 536)
+scale = Vector2(0.705078, 0.705078)
+texture = ExtResource("2_04pm5")
+metadata/_edit_lock_ = true
+
+[node name="background3" type="Sprite2D" parent="."]
+position = Vector2(1785, 533)
+scale = Vector2(0.708529, 0.708529)
+texture = ExtResource("2_04pm5")
+metadata/_edit_lock_ = true
+
+[node name="BabyImg" type="Sprite2D" parent="."]
+position = Vector2(-280.133, 661.13)
+scale = Vector2(0.63948, 0.61533)
+texture = ExtResource("4_i3p4r")
+
+[node name="hand" type="Sprite2D" parent="."]
+position = Vector2(974, 638)
+scale = Vector2(1.31562, 1.39259)
+texture = ExtResource("4_huru0")
+
+[node name="backgroundSound_bird" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vwvmf")
+
+[node name="CountdownSound_Bip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_k6dm6")
+
+[node name="photo_Failure" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_dfwrj")
+
+[node name="photo_success" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_n30ti")
+
+[node name="photoSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_dfwrj")
+
+[node name="childlaughSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_n30ti")
+volume_db = -9.294
+
+[node name="nextbuttonSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_egiop")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="nextButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 1688.0
+offset_top = 920.0
+offset_right = 1834.0
+offset_bottom = 1020.0
+theme_override_fonts/font = ExtResource("6_i3p4r")
+theme_override_font_sizes/font_size = 80
+text = "다음"
+
+[node name="explainLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 268.0
+offset_right = 656.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("6_i3p4r")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_n30ti")
+text = "ㅇㅘ우아아아"
+
+[node name="IntroLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 256.0
+offset_right = 1702.0
+offset_bottom = 799.0
+theme_override_fonts/font = ExtResource("6_i3p4r")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_i3p4r")
+text = "
+  사랑스러운 아이의 즐거운 모습을 사진으로 담아보세요!  
+
+      게임 시작후에 아이가 핸드폰화면안에 들어오면 
+          마우스 클릭을 해서 사진을 찍어보세요~
+
+               (스페이스바를 눌러 시작하세요)"
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 926.0
+offset_top = 30.0
+offset_right = 1017.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.580392, 0.882353, 1)
+theme_override_fonts/font = ExtResource("6_i3p4r")
+theme_override_font_sizes/font_size = 100
+text = "dk"
+
+[node name="CountdownLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 410.0
+offset_right = 1330.0
+offset_bottom = 638.0
+theme_override_fonts/font = ExtResource("6_i3p4r")
+theme_override_font_sizes/font_size = 200
+text = "1"
+
+[node name="resultButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 920.0
+offset_right = 1610.0
+offset_bottom = 1020.0
+theme_override_fonts/font = ExtResource("6_i3p4r")
+theme_override_font_sizes/font_size = 80
+text = "결과보기"
+script = ExtResource("7_bm08w")
+
+[connection signal="pressed" from="UI/nextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/resultButton" to="." method="_on_result_button_pressed"]
