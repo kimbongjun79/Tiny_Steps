@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm0ovxuh52smy"]
+
+[ext_resource type="Texture2D" uid="uid://3lxq04hue422" path="res://Assets/Images/흰 배경.jpeg" id="1_5u08y"]
+[ext_resource type="Script" uid="uid://b7j723jpf4axy" path="res://Scripts/clear_stage_3.gd" id="1_x0isx"]
+[ext_resource type="Texture2D" uid="uid://citxc8ehvfy1a" path="res://Assets/Images/stage3_child/clear_child.png" id="2_egkl2"]
+[ext_resource type="Texture2D" uid="uid://c3uhkwqk10x3l" path="res://Assets/Images/particle2.png" id="3_1rwgw"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="3_egkl2"]
+[ext_resource type="AudioStream" uid="uid://decbtkxiycbk3" path="res://Assets/Sounds/yipee-45360.mp3" id="6_lxf6p"]
+
+[sub_resource type="Gradient" id="Gradient_egkl2"]
+offsets = PackedFloat32Array(0, 0.505348, 1)
+colors = PackedColorArray(0.976294, 0.571566, 0.657481, 1, 0.489201, 0.796502, 0.951239, 1, 0.458153, 0.942978, 0.919508, 1)
+
+[node name="clear_stage3" type="Node2D"]
+script = ExtResource("1_x0isx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(969.257, 588.382)
+scale = Vector2(1.46837, 1.62068)
+texture = ExtResource("1_5u08y")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 150
+texture = ExtResource("3_1rwgw")
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+color_ramp = SubResource("Gradient_egkl2")
+
+[node name="child" type="Sprite2D" parent="."]
+position = Vector2(969, 774)
+scale = Vector2(0.851643, 0.825275)
+texture = ExtResource("2_egkl2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 616.0
+offset_top = 178.0
+offset_right = 1193.0
+offset_bottom = 281.0
+theme_override_colors/font_color = Color(0, 0.784314, 0.960784, 1)
+theme_override_colors/font_shadow_color = Color(0.152941, 0.419608, 0.678431, 0.788235)
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("3_egkl2")
+theme_override_font_sizes/font_size = 90
+text = "Stage3 Clear!! "
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1648.0
+offset_top = 875.0
+offset_right = 1794.0
+offset_bottom = 975.0
+theme_override_fonts/font = ExtResource("3_egkl2")
+theme_override_font_sizes/font_size = 80
+text = "다음"
+
+[node name="particle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_lxf6p")

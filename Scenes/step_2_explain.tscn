@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://cr1ww0mjjp5x2"]
+
+[ext_resource type="Texture2D" uid="uid://br468etk4mby8" path="res://Assets/Images/step2_explain/photowall.png" id="1_ugqg5"]
+[ext_resource type="Script" uid="uid://ctojxkhyt4y3c" path="res://Scripts/step_2_explain.gd" id="1_v20s8"]
+[ext_resource type="Texture2D" uid="uid://egbnsi7l4mjb" path="res://Assets/Images/step2_explain/photo3.jpeg" id="2_v20s8"]
+[ext_resource type="Texture2D" uid="uid://crp2qa7c4dg6e" path="res://Assets/Images/step2_explain/photo2.jpeg" id="3_tf88d"]
+[ext_resource type="Texture2D" uid="uid://cafqe80p3vfod" path="res://Assets/Images/step2_explain/photo1.jpeg" id="4_s7jmf"]
+[ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="5_00put"]
+[ext_resource type="AudioStream" uid="uid://byge5lfrv531r" path="res://Assets/Sounds/button_click.wav" id="6_oa20g"]
+[ext_resource type="AudioStream" uid="uid://k58uchsg1wk6" path="res://Assets/Sounds/ice-cream-man-69871.mp3" id="8_s7jmf"]
+[ext_resource type="Script" uid="uid://crvoyqq71p1t0" path="res://Scripts/clickable_sprite.gd" id="9_00put"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa20g"]
+size = Vector2(478.581, 476.884)
+
+[node name="step_2_expain" type="Node2D"]
+script = ExtResource("1_v20s8")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(960, 574.5)
+scale = Vector2(1.25, 1.24316)
+texture = ExtResource("1_ugqg5")
+metadata/_edit_lock_ = true
+
+[node name="photo3" type="Sprite2D" parent="."]
+position = Vector2(1524, 445)
+rotation = 0.251327
+scale = Vector2(0.479262, 0.497854)
+texture = ExtResource("2_v20s8")
+
+[node name="photo2" type="Sprite2D" parent="."]
+position = Vector2(455, 410)
+rotation = -0.225147
+scale = Vector2(0.516857, 0.517985)
+texture = ExtResource("3_tf88d")
+
+[node name="Photo1" type="Sprite2D" parent="."]
+position = Vector2(988, 320)
+scale = Vector2(0.553097, 0.553097)
+texture = ExtResource("4_s7jmf")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 658.0
+offset_right = 1757.0
+offset_bottom = 967.0
+theme_override_colors/font_color = Color(0.179149, 0.068504, 0.0469992, 1)
+theme_override_fonts/font = ExtResource("5_00put")
+theme_override_font_sizes/font_size = 65
+text = "
+      날마다 크는 아이의 사진을 찍어, 추억을 남겨보세요
+유사시에는 다양한 각도에서 찍은 사진들이 많은 도움이 됩니다
+                           (미아, 실종 신고 등)"
+
+[node name="nextButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 1694.0
+offset_top = 933.0
+offset_right = 1840.0
+offset_bottom = 1033.0
+theme_override_fonts/font = ExtResource("5_00put")
+theme_override_font_sizes/font_size = 80
+text = "다음"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="nextSound" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("6_oa20g")
+
+[node name="ClickableSprite" type="Area2D" parent="."]
+script = ExtResource("9_00put")
+
+[node name="Sprite2D" type="Sprite2D" parent="ClickableSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableSprite"]
+position = Vector2(453.629, 408.898)
+rotation = -0.225147
+shape = SubResource("RectangleShape2D_oa20g")
+
+[node name="icecreamShop" type="AudioStreamPlayer2D" parent="ClickableSprite"]
+stream = ExtResource("8_s7jmf")
+
+[connection signal="pressed" from="UI/nextButton" to="." method="_on_next_button_pressed"]
