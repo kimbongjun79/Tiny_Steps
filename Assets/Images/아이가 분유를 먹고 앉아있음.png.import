@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2afiwg2gmmvh"
-path="res://.godot/imported/normal_white.png-a337d69d093fc71826ec73745d0ee033.ctex"
+uid="uid://eswjvunpwc71"
+path="res://.godot/imported/아이가 분유를 먹고 앉아있음.png-50f4612f817ddbc71f30486a6cc69bab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://normal_white.png"
-dest_files=["res://.godot/imported/normal_white.png-a337d69d093fc71826ec73745d0ee033.ctex"]
+source_file="res://Assets/Images/아이가 분유를 먹고 앉아있음.png"
+dest_files=["res://.godot/imported/아이가 분유를 먹고 앉아있음.png-50f4612f817ddbc71f30486a6cc69bab.ctex"]
 
 [params]
 
