@@ -21,10 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bvoj45m5s8ugg" path="res://Assets/Images/엄마가 아이를 안고 등을 두드려줌.png" id="14_1jtxp"]
 [ext_resource type="AudioStream" uid="uid://cihwqhbnds038" path="res://Assets/Sounds/pop-331049.mp3" id="20_1jtxp"]
 [ext_resource type="AudioStream" uid="uid://bmwd3vj7230mc" path="res://Assets/Sounds/new-notification-10-352755.mp3" id="21_tw6i0"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2moqc"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+[ext_resource type="AudioStream" uid="uid://b5qf7hwuo6swb" path="res://Assets/Sounds/Stage_1_bgm.mp3" id="22_1jtxp"]
 
 [sub_resource type="FontFile" id="FontFile_7f8g8"]
 cache/0/16/0/ascent = 0.0
@@ -72,10 +69,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = 698.0
-offset_right = 14.0
-offset_bottom = 698.0
+offset_left = 1.0
+offset_top = 702.0
+offset_right = 1.0
+offset_bottom = 702.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -127,6 +124,31 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_cmr4g")
 milk_type = "hot"
+
+[node name="1" type="RichTextLabel" parent="MilkMenuPanel"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 306.0
+offset_right = 397.0
+offset_bottom = 346.0
+theme_override_font_sizes/normal_font_size = 27
+text = "25℃"
+
+[node name="2" type="RichTextLabel" parent="MilkMenuPanel"]
+offset_left = 902.0
+offset_top = 297.0
+offset_right = 972.0
+offset_bottom = 337.0
+theme_override_font_sizes/normal_font_size = 27
+text = "40℃"
+
+[node name="3" type="RichTextLabel" parent="MilkMenuPanel"]
+offset_left = 1500.0
+offset_top = 297.0
+offset_right = 1570.0
+offset_bottom = 337.0
+theme_override_font_sizes/normal_font_size = 27
+text = "70℃"
 
 [node name="BurpMenuPanel" type="Control" parent="."]
 layout_mode = 3
@@ -272,18 +294,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_haxi5")
 
-[node name="FX" type="GPUParticles2D" parent="CradleDropZone"]
-position = Vector2(216, 312)
-scale = Vector2(1.88, 2.65939)
-amount = 30
-lifetime = 0.66
-interp_to_end = 0.111
-preprocess = 0.85
-speed_scale = 1.65
-explosiveness = 0.44
-randomness = 0.45
-process_material = SubResource("ParticleProcessMaterial_2moqc")
-
 [node name="BurpDropZone" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -349,6 +359,8 @@ pitch_scale = 2.5
 
 [node name="DropSFX" type="AudioStreamPlayer2D" parent="UIPanel"]
 stream = ExtResource("20_1jtxp")
+volume_db = 10.0
+pitch_scale = 1.5
 
 [node name="WrongSFX" type="AudioStreamPlayer2D" parent="UIPanel"]
 stream = ExtResource("21_tw6i0")
@@ -361,5 +373,11 @@ offset_right = 1874.0
 offset_bottom = 302.0
 text = "다음
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_1jtxp")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="UIPanel/NextButton" to="." method="_on_next_button_pressed"]

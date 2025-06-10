@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://crp2qa7c4dg6e" path="res://Assets/Images/step2_explain/photo2.jpeg" id="3_tf88d"]
 [ext_resource type="Texture2D" uid="uid://cafqe80p3vfod" path="res://Assets/Images/step2_explain/photo1.jpeg" id="4_s7jmf"]
 [ext_resource type="FontFile" uid="uid://bccroypcuhfdi" path="res://Assets/fonts/BMKkubulimTTF.ttf" id="5_00put"]
-[ext_resource type="AudioStream" uid="uid://byge5lfrv531r" path="res://Assets/Sounds/button_click.wav" id="6_oa20g"]
+[ext_resource type="AudioStream" uid="uid://djh5d4vi15rje" path="res://Assets/Sounds/button_click.wav" id="6_oa20g"]
 [ext_resource type="AudioStream" uid="uid://k58uchsg1wk6" path="res://Assets/Sounds/ice-cream-man-69871.mp3" id="8_s7jmf"]
 [ext_resource type="Script" uid="uid://crvoyqq71p1t0" path="res://Scripts/clickable_sprite.gd" id="9_00put"]
 

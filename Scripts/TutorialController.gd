@@ -204,7 +204,7 @@ func _on_drag_completed(data:Dictionary) -> void:
 		attach.visible = true
 		mobile_attached = true
 		baby.texture   = baby_reach_tex
-		sfx_drop.play(); fx_particle.restart()
+		sfx_drop.play();
 		_enter_milk_praise()
 		return
 
@@ -215,7 +215,7 @@ func _on_drag_completed(data:Dictionary) -> void:
 		milk_attach.visible = true
 		if meta.get("type") == CORRECT_MILK_TYPE:
 			baby.texture = baby_default_tex
-			sfx_drop.play(); fx_particle.restart()
+			sfx_drop.play();
 			_enter_burp_hint()
 		else:
 			baby.texture = baby_cry_tex

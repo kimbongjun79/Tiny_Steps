@@ -4,9 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://2afiwg2gmmvh" path="res://Assets/Images/normal_white.png" id="2_s8dih"]
 [ext_resource type="Texture2D" uid="uid://bnfld68dikjgr" path="res://Assets/Images/pressed_black.png" id="3_4457w"]
 [ext_resource type="Texture2D" uid="uid://dp0qesioua110" path="res://Assets/Images/hover_gray.png" id="4_sn3ud"]
-[ext_resource type="Script" uid="uid://byvjj87gswkg5" path="res://Scripts/texture_button.gd" id="5_beytu"]
-[ext_resource type="Script" uid="uid://8w7vv5f04hfw" path="res://Scripts/texture_button_2.gd" id="6_b0xr7"]
 [ext_resource type="Script" uid="uid://blvuwy8v1pcas" path="res://Scripts/back.gd" id="7_s1eqd"]
+
+[sub_resource type="GDScript" id="GDScript_g5hvg"]
+script/source = "extends TextureButton
+
+func _on_texture_button_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/tutorial_scene.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_754pv"]
+script/source = "extends TextureButton
+
+func _on_texture_button2_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/Stage2.tscn\")
+"
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,15 +50,15 @@ horizontal_alignment = 1
 [node name="TextureButton" type="TextureButton" parent="Control"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-offset_left = 661.0
+offset_left = 464.0
 offset_top = 400.0
-offset_right = 861.0
+offset_right = 664.0
 offset_bottom = 488.0
 texture_normal = ExtResource("2_s8dih")
 texture_pressed = ExtResource("3_4457w")
 texture_hover = ExtResource("4_sn3ud")
 ignore_texture_size = true
-script = ExtResource("5_beytu")
+script = SubResource("GDScript_g5hvg")
 
 [node name="Label" type="Label" parent="Control/TextureButton"]
 layout_mode = 0
@@ -62,16 +74,16 @@ text = "Stage 1"
 [node name="TextureButton2" type="TextureButton" parent="Control"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-offset_left = 1081.0
+offset_left = 884.0
 offset_top = 400.0
-offset_right = 1281.0
+offset_right = 1084.0
 offset_bottom = 481.0
 mouse_filter = 1
 texture_normal = ExtResource("2_s8dih")
 texture_pressed = ExtResource("3_4457w")
 texture_hover = ExtResource("4_sn3ud")
 ignore_texture_size = true
-script = ExtResource("6_b0xr7")
+script = SubResource("GDScript_754pv")
 
 [node name="Label" type="Label" parent="Control/TextureButton2"]
 custom_minimum_size = Vector2(200, 60)
@@ -88,10 +100,10 @@ text = "Stage 2"
 [node name="TextureButton3" type="TextureButton" parent="Control"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-offset_left = 463.0
-offset_top = 655.0
-offset_right = 663.0
-offset_bottom = 733.0
+offset_left = 1324.0
+offset_top = 403.0
+offset_right = 1524.0
+offset_bottom = 481.0
 texture_normal = ExtResource("2_s8dih")
 texture_pressed = ExtResource("3_4457w")
 texture_hover = ExtResource("4_sn3ud")
@@ -108,52 +120,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 54
 text = "Stage 3"
-
-[node name="TextureButton4" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-offset_left = 871.0
-offset_top = 655.0
-offset_right = 871.0
-offset_bottom = 733.0
-texture_normal = ExtResource("2_s8dih")
-texture_pressed = ExtResource("3_4457w")
-texture_hover = ExtResource("4_sn3ud")
-ignore_texture_size = true
-
-[node name="Label" type="Label" parent="Control/TextureButton4"]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 194.0
-offset_bottom = 74.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 54
-text = "Stage 4"
-
-[node name="TextureButton5" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-offset_left = 1288.0
-offset_top = 655.0
-offset_right = 1488.0
-offset_bottom = 733.0
-texture_normal = ExtResource("2_s8dih")
-texture_pressed = ExtResource("3_4457w")
-texture_hover = ExtResource("4_sn3ud")
-ignore_texture_size = true
-
-[node name="Label" type="Label" parent="Control/TextureButton5"]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 194.0
-offset_bottom = 74.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 54
-text = "Stage 5"
 
 [node name="back" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -184,6 +150,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="Control/TextureButton" to="Control" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Control/TextureButton2" to="Control" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Control/TextureButton3" to="Control" method="_on_texture_button_3_pressed"]
-[connection signal="pressed" from="Control/TextureButton4" to="Control" method="_on_texture_button_4_pressed"]
-[connection signal="pressed" from="Control/TextureButton5" to="Control" method="_on_texture_button_5_pressed"]
 [connection signal="pressed" from="Control/back" to="Control" method="_on_back_pressed"]

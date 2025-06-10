@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://c16vvaldulxxi"]
+
+[ext_resource type="Script" uid="uid://d3126taaxmudh" path="res://Stage_2_scripts/Baby.gd" id="1_4v25d"]
+[ext_resource type="Script" uid="uid://qnp0bpsa3pq4" path="res://Stage_2_scripts/ItemSpawner.gd" id="2_wfka5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Baby" type="CharacterBody2D" parent="."]
+script = ExtResource("1_4v25d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Baby"]
+
+[node name="ItemSpawner" type="Node2D" parent="."]
+script = ExtResource("2_wfka5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TimerDisplay" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HItCountDIsplay" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PopupPanel" type="PopupPanel" parent="UI"]
+
+[node name="Label" type="Label" parent="UI/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Button" type="Button" parent="UI/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0

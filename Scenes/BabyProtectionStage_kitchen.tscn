@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://lvvyvaj2m1k1"]
+
+[ext_resource type="Script" uid="uid://hoe5sctvy5yo" path="res://Scripts/BabyProtectionStage_kitchen.gd" id="1_xc7kk"]
+[ext_resource type="Texture2D" uid="uid://d2ot8d8b23oo0" path="res://Assets/Backgrounds/background_kitchen.png" id="2_xc7kk"]
+[ext_resource type="Texture2D" uid="uid://vbhh3do5x886" path="res://Assets/Images/baby.png" id="3_gr6ja"]
+[ext_resource type="Texture2D" uid="uid://2afiwg2gmmvh" path="res://Assets/Images/normal_white.png" id="4_y3x4q"]
+[ext_resource type="Texture2D" uid="uid://bnfld68dikjgr" path="res://Assets/Images/pressed_black.png" id="5_f7270"]
+[ext_resource type="Texture2D" uid="uid://dp0qesioua110" path="res://Assets/Images/hover_gray.png" id="6_ycay7"]
+
+[node name="BabyProtectionStage_kitchen" type="Node2D"]
+script = ExtResource("1_xc7kk")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.25, 1.05469)
+texture = ExtResource("2_xc7kk")
+
+[node name="ItemContainer" type="Node2D" parent="." groups=["item"]]
+
+[node name="Baby" type="CharacterBody2D" parent="."]
+position = Vector2(100, 100)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite" type="Sprite2D" parent="Baby"]
+texture = ExtResource("3_gr6ja")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="UILayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+text = "남은 시간: 30"
+
+[node name="ResultLabel" type="Label" parent="UILayer"]
+visible = false
+offset_left = 180.0
+offset_top = 130.0
+offset_right = 180.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 64
+
+[node name="next_button" type="TextureButton" parent="UILayer"]
+visible = false
+offset_left = 1227.0
+offset_top = 491.0
+offset_right = 1427.0
+offset_bottom = 571.0
+texture_normal = ExtResource("4_y3x4q")
+texture_pressed = ExtResource("5_f7270")
+texture_hover = ExtResource("6_ycay7")
+
+[node name="Label" type="Label" parent="UILayer/next_button"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "다음 단계"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry_button" type="TextureButton" parent="UILayer"]
+visible = false
+offset_left = 1227.0
+offset_top = 491.0
+offset_right = 1427.0
+offset_bottom = 571.0
+texture_normal = ExtResource("4_y3x4q")
+texture_pressed = ExtResource("5_f7270")
+texture_hover = ExtResource("6_ycay7")
+
+[node name="Label" type="Label" parent="UILayer/retry_button"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "재도전"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main_button" type="TextureButton" parent="UILayer"]
+visible = false
+offset_left = 1503.0
+offset_top = 491.0
+offset_right = 1703.0
+offset_bottom = 571.0
+texture_normal = ExtResource("4_y3x4q")
+texture_pressed = ExtResource("5_f7270")
+texture_hover = ExtResource("6_ycay7")
+
+[node name="Label" type="Label" parent="UILayer/main_button"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "타이틀로"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UILayer/next_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UILayer/retry_button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="UILayer/main_button" to="." method="_on_main_button_pressed"]
